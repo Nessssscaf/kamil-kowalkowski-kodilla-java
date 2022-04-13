@@ -8,9 +8,13 @@ import java.util.List;
 
 
 public class CollectionTestSuite {
+
+    private static int testCounter = 0;
+
     @BeforeEach
-    public void before() {
-        System.out.println("Test Case: begin...");
+    public void beforeEveryTest() {
+        testCounter++;
+        System.out.println("Test Case: " + testCounter + " begin");
     }
     @AfterEach
     public void after() {
@@ -26,10 +30,10 @@ public class CollectionTestSuite {
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
         //When
+
         List<Integer> numbers = new ArrayList<>();
         List<Integer> emptyList = new ArrayList<>();
         List<Integer> result = oddNumbersExterminator.exterminate(numbers);
-        result.clear();
 
         //Then
 
@@ -47,6 +51,8 @@ public class CollectionTestSuite {
         //When
 
         List<Integer> numbers = new ArrayList<>();
+        for (int n=0; n < 10; n++) {
+            numbers.add(n);}
         List<Integer> result = oddNumbersExterminator.exterminate(numbers);
         Integer a[] = new Integer[]{0, 2, 4, 6, 8};
         List<Integer> oddList = Arrays.asList(a);

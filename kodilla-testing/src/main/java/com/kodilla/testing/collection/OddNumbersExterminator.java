@@ -14,9 +14,7 @@ public class OddNumbersExterminator {
     }
 
     public List<Integer> exterminate(List<Integer> numbers) {
-        for (int n=0; n < 10; n++) {
-            numbers.add(n);
-        }
+
         int temporaryValue = 0;
         for (int n=0; n < numbers.size(); n++) {
              temporaryValue = numbers.get(n);
