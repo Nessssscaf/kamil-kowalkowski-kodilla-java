@@ -2,12 +2,12 @@ package com.kodilla.testing.shape;
 
 public class Square implements Shape {
 
-    private String shapeName;
+    private String shapeName = "square";
+    private double side;
     private double field;
 
-    public Square(String shapeName, double field) {
-        this.shapeName = shapeName;
-        this.field = field;
+    public Square(double side) {
+        this.side = side;
     }
 
     public String getShapeName() {
@@ -15,6 +15,7 @@ public class Square implements Shape {
     }
 
     public double getField() {
+        field = side * side;
         return field;
     }
 

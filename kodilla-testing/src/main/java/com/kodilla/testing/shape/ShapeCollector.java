@@ -5,29 +5,20 @@ import java.util.List;
 
 public class ShapeCollector {
 
-    private Shape shape;
-    private String shapeName;
-    private double field;
     private List<Shape> figures = new ArrayList<>();
 
+    Circle circle = new Circle(3.8);
+    Square square = new Square(4.2);
+    Triangle triangle = new Triangle(4.0, 7.2);
 
-    public ShapeCollector(String shapeName, double field) {
-    this.shapeName = shapeName;
-    this.field = field;
+    public void addFigure(Shape shape) {
+        figures.add(circle);
     }
 
-    Circle theShape = new Circle("circle", 3.8);
-    Square theShape2 = new Square("square", 4.2);
-    Triangle theShape3 = new Triangle("triangle", 4.9);
-
-    public void addFigure(String shapeName, double field) {
-        figures.add(theShape);
-    }
-
-    public boolean removeFigure(String shapeName, double field) {
+    public boolean removeFigure(Shape shape) {
         boolean result = false;
-        if (figures.contains(theShape)) {
-            figures.remove(theShape);
+        if (figures.contains(circle)) {
+            figures.remove(circle);
             result = true;
         }
         return result;
@@ -41,9 +32,9 @@ public class ShapeCollector {
     }
 
     public String showFigures() {
-        return theShape.getShapeName() +
-                " " + theShape2.getShapeName() +
-                " " + theShape3.getShapeName();
+        return circle.getShapeName() +
+                " " + square.getShapeName() +
+                " " + triangle.getShapeName();
     }
 
     public int getFigureQuantity() {

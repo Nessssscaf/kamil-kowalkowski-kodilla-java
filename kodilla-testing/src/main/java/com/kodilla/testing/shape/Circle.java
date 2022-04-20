@@ -2,12 +2,12 @@ package com.kodilla.testing.shape;
 
 public class Circle implements Shape{
 
-    private String shapeName;
+    private String shapeName = "circle";
+    private double radius;
     private double field;
 
-    public Circle(String shapeName, double field) {
-        this.shapeName = shapeName;
-        this.field = field;
+    public Circle(double radius) {
+        this.radius = radius;
     }
 
     public String getShapeName() {
@@ -15,6 +15,7 @@ public class Circle implements Shape{
     }
 
     public double getField() {
+        field = Math.PI*(radius*radius);
         return field;
     }
 
@@ -25,7 +26,7 @@ public class Circle implements Shape{
 
         Circle circle = (Circle) o;
 
-        if (Double.compare(circle.field, field) != 0) return false;
+        if (Double.compare(circle.radius, radius) != 0) return false;
         return shapeName != null ? shapeName.equals(circle.shapeName) : circle.shapeName == null;
     }
 
@@ -34,7 +35,7 @@ public class Circle implements Shape{
         int result;
         long temp;
         result = shapeName != null ? shapeName.hashCode() : 0;
-        temp = Double.doubleToLongBits(field);
+        temp = Double.doubleToLongBits(radius);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
