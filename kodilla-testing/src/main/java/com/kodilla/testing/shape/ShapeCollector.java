@@ -1,24 +1,21 @@
 package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ShapeCollector {
 
-    private List<Shape> figures = new ArrayList<>();
-
-    Circle circle = new Circle(3.8);
-    Square square = new Square(4.2);
-    Triangle triangle = new Triangle(4.0, 7.2);
+    List<Shape> figures = new ArrayList<>();
 
     public void addFigure(Shape shape) {
-        figures.add(circle);
+        figures.add(shape);
     }
 
     public boolean removeFigure(Shape shape) {
         boolean result = false;
-        if (figures.contains(circle)) {
-            figures.remove(circle);
+        if (figures.contains(shape)) {
+            figures.remove(shape);
             result = true;
         }
         return result;
@@ -32,10 +29,13 @@ public class ShapeCollector {
     }
 
     public String showFigures() {
-        return circle.getShapeName() +
-                " " + square.getShapeName() +
-                " " + triangle.getShapeName();
+        for (Shape shape : figures) {
+            String word = shape.getShapeName();
+            return word + " ";
+        }
+        return null;
     }
+
 
     public int getFigureQuantity() {
         return figures.size();
