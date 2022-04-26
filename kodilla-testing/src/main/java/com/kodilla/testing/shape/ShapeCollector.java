@@ -27,13 +27,16 @@ public class ShapeCollector {
         }
         return null;
     }
+    String word;
+    public String  showFigures() {
 
-    public String showFigures() {
+
+        List<String> shapeNames = new ArrayList<>();
         for (Shape shape : figures) {
-            String word = shape.getShapeName();
-            return word + " ";
+           word = shape.getShapeName();
+           shapeNames.add(word);
         }
-        return null;
+        return word;
     }
 
 
