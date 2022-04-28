@@ -3,6 +3,7 @@ package com.kodilla.testing.shape;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class ShapeCollector {
 
@@ -27,20 +28,34 @@ public class ShapeCollector {
         }
         return null;
     }
+
     String word;
-    public String  showFigures() {
-
-
-        List<String> shapeNames = new ArrayList<>();
+    public String showFigures() {
         for (Shape shape : figures) {
-           word = shape.getShapeName();
-           shapeNames.add(word);
+            word += " " + shape.getShapeName();
         }
         return word;
     }
 
-
     public int getFigureQuantity() {
         return figures.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShapeCollector that = (ShapeCollector) o;
+
+        if (!Objects.equals(figures, that.figures)) return false;
+        return Objects.equals(word, that.word);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = figures != null ? figures.hashCode() : 0;
+        result = 31 * result + (word != null ? word.hashCode() : 0);
+        return result;
     }
 }
