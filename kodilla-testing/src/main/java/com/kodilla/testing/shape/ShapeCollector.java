@@ -48,14 +48,11 @@ public class ShapeCollector {
 
         ShapeCollector that = (ShapeCollector) o;
 
-        if (!Objects.equals(figures, that.figures)) return false;
-        return Objects.equals(word, that.word);
+        return figures != null ? figures.equals(that.figures) : that.figures == null;
     }
 
     @Override
     public int hashCode() {
-        int result = figures != null ? figures.hashCode() : 0;
-        result = 31 * result + (word != null ? word.hashCode() : 0);
-        return result;
+        return figures != null ? figures.hashCode() : 0;
     }
 }
