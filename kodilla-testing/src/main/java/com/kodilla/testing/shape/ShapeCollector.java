@@ -29,9 +29,8 @@ public class ShapeCollector {
         return null;
     }
 
-    String word = "";
     public String showFigures() {
-
+        String word = "";
         for (Shape shape : figures) {
             word += shape.getShapeName() + " ";
         }
