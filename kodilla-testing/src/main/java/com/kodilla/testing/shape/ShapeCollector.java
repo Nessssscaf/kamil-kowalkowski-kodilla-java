@@ -29,10 +29,11 @@ public class ShapeCollector {
         return null;
     }
 
-    String word;
+    String word = "";
     public String showFigures() {
+
         for (Shape shape : figures) {
-            word += " " + shape.getShapeName();
+            word += shape.getShapeName() + " ";
         }
         return word;
     }

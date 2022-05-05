@@ -90,7 +90,7 @@ public class ShapeCollectorTestSuite {
             String showAll = shapeCollector.showFigures();
 
             //Then
-            Assertions.assertEquals("null circle square triangle", showAll);
+            Assertions.assertEquals("circle square triangle ", showAll);
         }
     }
 }
