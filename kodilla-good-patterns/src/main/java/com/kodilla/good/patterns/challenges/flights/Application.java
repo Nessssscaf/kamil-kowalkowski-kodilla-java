@@ -5,8 +5,8 @@ public class Application {
         Service service = new Service();
         Connections connections = new Connections();
 
-        service.findDepartures("Warszawa", connections.createFlightsList());
-        service.findArrivals("Kraków", connections.createFlightsList());
-        service.findConnections("Warszawa", "Kraków", "Katowice", connections.createFlightsList());
+        service.findDepartures("Warszawa", connections);
+        service.findArrivals("Kraków", connections);
+        service.findConnections("Warszawa", "Kraków", "Katowice", connections);
     }
 }
