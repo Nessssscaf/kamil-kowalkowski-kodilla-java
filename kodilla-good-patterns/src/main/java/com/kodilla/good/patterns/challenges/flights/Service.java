@@ -6,19 +6,21 @@ import java.util.stream.Collectors;
 
 public class Service {
 
-    public void findDepartures(String city, Connections connections) {
+    Connections connections = new Connections();
+
+    public void findDepartures(String city) {
         System.out.println(connections.createFlightsList().stream()
                 .filter(s -> s.getDeparture().equals(city))
                 .collect(Collectors.toList()));
     }
 
-    public void findArrivals(String city, Connections connections) {
+    public void findArrivals(String city) {
         System.out.println(connections.createFlightsList().stream()
                 .filter(s -> s.getArrival().equals(city))
                 .collect(Collectors.toList()));
     }
 
-    public void findConnections(String departureCity, String arrivalCity, String transferCity, Connections connections) {
+    public void findConnections(String departureCity, String arrivalCity, String transferCity) {
         List<Flights> arrival = connections.createFlightsList().stream()
                 .filter(s -> s.getArrival().equals(arrivalCity))
                 .collect(Collectors.toList());
