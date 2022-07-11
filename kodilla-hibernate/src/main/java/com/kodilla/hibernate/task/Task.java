@@ -6,6 +6,16 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import java.util.Date;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Task.retrieveLongTasks",
+                query = "FROM Task WHERE duration > 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveShortTasks",
+                query = "FROM Task WHERE duration <= 10"
+        )
+})
 @Entity
 @Table(name = "TASKS")
 public class Task {

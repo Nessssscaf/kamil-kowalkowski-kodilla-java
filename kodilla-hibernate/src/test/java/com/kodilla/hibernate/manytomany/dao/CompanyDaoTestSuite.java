@@ -3,16 +3,22 @@ package com.kodilla.hibernate.manytomany.dao;
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Test
     void testSaveManyToMany() {
@@ -58,5 +64,32 @@ class CompanyDaoTestSuite {
         } catch (Exception e) {
             //do nothing
         }
+    }
+
+    @Test
+    public void testFindNameByThreeChars() {
+        //Given
+        Company softwareMachine = new Company("Software Machine");
+
+        //When
+        companyDao.findNameByFirstThreeChars("Sof");
+        String name = softwareMachine.getName();
+
+        //Then
+        assertEquals("Software Machine", name);
+    }
+
+    @Test
+    public void testFindName() {
+        //Given
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        //When
+        employeeDao.findByName("Kovalsky");
+        String lastname = lindaKovalsky.getLastname();
+
+        //Then
+        assertEquals("Kovalsky", lastname);
+
     }
 }
