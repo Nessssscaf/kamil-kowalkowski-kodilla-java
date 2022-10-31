@@ -1,0 +1,22 @@
+{
+	"carname":"personal",
+	"thecarbrand":"Jaguar",
+	"armchairs":[{
+		"id":0,
+		"material":"velvet",
+		"color":"grey"
+	}, {
+		"id":1,
+		"material":"leather",
+		"color":"black"
+	}, {
+		"id":2,
+		"material":"jacquard",
+		"color":"white"
+	}, {
+		"id":3,
+		"material":"foil",
+		"color":"brown"
+	}],
+	"enginecapacity":4000
+}
